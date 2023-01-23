@@ -1,0 +1,2315 @@
+			||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+			||||||||||||||||||||||||||||||||||||||||||||  Конспект по C#  |||||||||||||||||||||||||||||||||||||||||||||
+			||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+______________________________________________________________________________________________
+				//Первая программа
+Пример: 
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn { // пространство имен
+    class Program { //класс
+        static void Main(string[] args) { //метод main
+            string yourName; // переменная 
+            Console.WriteLine("What is your name?"); // вывод сообщения
+            yourName = Console.ReadLine(); // ввод текста
+
+            Console.WriteLine("Hello {0}", yourName);
+        }
+    }
+}
+______________________________________________________________________________________________
+			//Преобразование пользовательского ввода в целое число
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn {
+    class Program {
+        static void Main(string[] args) {
+            int age = Convert.ToInt32(Console.ReadLine()); //- преобразование после ввода
+            Console.WriteLine("You are {0} years old", age);
+        }
+    }
+}
+______________________________________________________________________________________________
+					      //ЦИКЛ WHILE
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn {
+    class Program {
+        static void Main(string[] args) {
+            int num = 1;
+            while(num < 6) {
+                Console.WriteLine(num);
+                num++; //- увеличение на 1 (number+=2; увеличивает на 2)
+            }
+        }
+    }
+}
+
+АНАЛОГИЧНО В ОБРАТНОМ ПОРЯДКЕ
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn {
+    class Program {
+        static void Main(string[] args) {
+            int number = 3; 
+            while (number>=0){
+                Console.WriteLine(number);
+                number--; //- уменьшение на -1 
+            }
+        }
+    }
+}
+
+while(++num < 6) {
+	Console.WriteLine(num);
+     }
+
+
+______________________________________________________________________________________________
+					      // ЦИКЛ FOR
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn {
+    class Program {
+        static void Main(string[] args) {
+            for (int x = 10; x < 15; x++) {
+                Console.WriteLine("Value of x: {0}", x);
+            }
+        }
+    }
+}
+______________________________________________________________________________________________
+					      // КОНСТАНТА
+const double PI = 3.14; //- неизменяемое значение
+PI = 8; //error
+______________________________________________________________________________________________
+					      // СРАВНЕНИЕ IF
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn {
+    class Program {
+        static void Main(string[] args) {
+            int x = 8;
+            int y = 3;            
+            if (x > y) { 
+                Console.WriteLine("x is greater than y");
+            }
+        }
+    }
+}
+______________________________________________________________________________________________
+					      //СРАВНЕНИЕ SWITCH
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn {
+    class Program {
+        static void Main(string[] args) {
+            int num = 3;
+            switch (num) {
+                case 1:
+                    Console.WriteLine("one");
+                    break;
+                case 2:
+                    Console.WriteLine("two");
+                    break;
+                case 3:
+                    Console.WriteLine("three");
+                    break;
+            }
+        }
+    }
+}
+
+2 ВАРИАНТ:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn {
+    class Program {
+        static void Main(string[] args) {
+            int age = 88; // значение переменной (может быть также введено через int age = Console.ReadLine(); )
+            switch (age) {
+                case 16: //условие если true
+                    Console.WriteLine("Too young"); //вывод сообщения
+                    break;
+                case 42:
+                    Console.WriteLine("Adult");
+                    break;
+                case 70:
+                    Console.WriteLine("Senior");
+                    break;
+                default: //стандартное значение переменной
+                    Console.WriteLine("The default case");
+                    break;
+            }
+        }
+    }
+}
+
+
+/
+______________________________________________________________________________________________
+					      //Замена слова
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string text = "This is some text about a dog. The word dog appears in this text a number of times. This is the end.";
+            text = text.Replace("dog", "cat");
+            text = text.Substring(0, text.IndexOf(".")+1);
+            
+            Console.WriteLine(text);
+        }
+    }
+}
+______________________________________________________________________________________________
+					      //Операции со строками
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string a = "some text";
+            Console.WriteLine(a.Length);
+            //Outputs 9
+
+            Console.WriteLine(a.IndexOf('t'));
+            //Outputs 5
+
+             a = a.Insert(0, "This is ");
+            Console.WriteLine(a);
+            //Outputs "This is some text"
+
+            a = a.Replace("This is", "I am");
+            Console.WriteLine(a);
+            //Outputs "I am some text"
+
+            if(a.Contains("some"))
+                Console.WriteLine("found");
+            //Outputs "found"
+
+            a = a.Remove(4);
+            Console.WriteLine(a);
+            //Outputs "I am"
+
+            a = a.Substring(2);
+            Console.WriteLine(a);
+            //Outputs "am"
+        }
+    }
+}
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string a = "some text";
+            Console.WriteLine(a[2]); - выведение отдельной буквы
+        }
+    }
+}
+______________________________________________________________________________________________
+					      //Module 5 quiz
+int [] arr = {0, 5, 3, 2, 1};
+foreach (int item in arr) {
+	Console.WriteLine(item);
+}
+
+
+What is the output of this code?
+
+string s = "SoloLearn";
+int x = s.Length;
+int y = s.IndexOf("e"); //определяет индекс буквы в тексте
+Console.Write(x%y);
+
+______________________________________________________________________________________________
+					      //Конструктор и деструктор
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn
+{
+    class Program
+    {
+        class Dog
+        {
+            public Dog() {
+                Console.WriteLine("Constructor");
+            }
+            ~Dog() {
+                Console.WriteLine("Destructor");
+            }
+        }
+        static void Main(string[] args)
+        {
+            Dog d = new Dog();
+        }
+    }
+}
+______________________________________________________________________________________________
+					      // Обращение к классу из другого класса
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn {
+    class Program {
+        class Cat {
+            public static int count=0;
+            public Cat() {
+                count++;
+            }
+        }
+        static void Main(string[] args)        {
+            Cat c1 = new Cat();
+            Cat c2 = new Cat();
+            Cat c3 = new Cat();
+            Console.WriteLine(Cat.count);
+        }
+    }
+}
+
+*******************************************************************
+Еще пример: 
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn {
+    class Program {
+        class Dog {
+            public static void Bark() {
+                Console.WriteLine("Woof");
+            }
+        }
+        static void Main(string[] args) {
+            Dog.Bark();
+            Dog.Bark();
+        }
+    }
+}
+
+*******************************************************************
+Еще пример: 
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn {
+    class Program {
+        class MathClass {
+            public const int ONE = 1;
+        }
+        static void Main(string[] args) {
+            Console.Write(MathClass.ONE);
+        }
+    }
+}
+
+*******************************************************************
+Еще пример: 
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn {
+    class Program {
+        class SomeClass {
+            public static int X { get; set; }
+            public static int Y { get; set; }
+            
+            static SomeClass() {
+                X = 10;
+                Y = 20;
+            }
+        }
+        static void Main(string[] args) {
+            Console.WriteLine(SomeClass.X);
+        }
+    }
+}
+
+
+
+______________________________________________________________________________________________
+					      // Математические методы расчетов
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine(Math.Pow(2, 3));
+        }
+    }
+}
+Math.PI - постоянная величина ПИ.
+Math.E представляет натуральное логарифмическое основание e.
+Math.Max() возвращает больший из двух своих аргументов.
+Math.Min() возвращает меньший из двух своих аргументов.
+Math.Abs() возвращает абсолютное значение своего аргумента.
+Math.Sin() возвращает синус указанного угла.
+Math.Cos() возвращает косинус указанного угла.
+Math.Pow(число, степень в которую необходимо возвести число) возвращает указанное число, возведенное в указанную степень.
+Math.Round() округляет десятичное число до ближайшего целого значения.
+Math.Sqrt() возвращает квадратный корень из указанного числа.
+
+______________________________________________________________________________________________
+					      //Методы для работы с массивами
+int[] arr = {1, 2, 3, 4};
+Array.Reverse(arr); //arr = {4, 3, 2, 1}
+Array.Sort(arr); //arr = {1, 2, 3, 4}
+
+Пример кода:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace SoloLearn {
+    class Program {
+        static void Main(string[] args) {
+            int count = Convert.ToInt32(Console.ReadLine());
+            int[] numbers = new int[count];
+            for (int i = 0; i < count; i++) {
+                numbers[i] = Convert.ToInt32(Console.ReadLine());
+            }
+            Array.Sort(numbers);
+            for (int j = 0; j < count; j++) {
+                Console.WriteLine(numbers[j]);
+            }
+        }
+    }
+}
+______________________________________________________________________________________________
+					      // Методы для работы со строками
+string s1 = "some text";
+string s2 = "another text";
+String.Concat(s1, s2); // combines the two strings
+String.Equals(s1, s2); // returns false
+______________________________________________________________________________________________
+					      // Методы работы с датами
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine(DateTime.Now);
+            Console.WriteLine(DateTime.Today);            
+            Console.WriteLine(DateTime.DaysInMonth(2016, 2));
+        }
+    }
+}
+______________________________________________________________________________________________
+					      //
+//Ключевое слово this используется внутри класса и 
+ссылается на текущий экземпляр класса, что означает, 
+что оно ссылается на текущий объект.
+
+class Person {
+  private string name;
+  public Person(string name) {
+    this.name = name;
+  }
+}
+Другое распространенное использование этого - 
+для передачи текущего экземпляра методу в качестве параметра: ShowPersonInfo(this);
+
+Модификатор только для чтения предотвращает изменение члена класса после построения. 
+Это означает, что поле, объявленное как доступное только для чтения, может быть изменено 
+только тогда, когда вы его объявляете или из конструктора.
+Например:
+
+class Person {
+  private readonly string name = "John";  // readonly только для чтения
+  public Person(string name) {
+    this.name = name; 
+  }
+}
+
+Если мы попытаемся изменить поле имени в другом месте, мы получим сообщение об ошибке.
+Существует три основных различия между полями только для чтения и const.
+Во-первых, постоянное поле должно быть инициализировано при его объявлении, тогда как поле, 
+доступное только для чтения, может быть объявлено без инициализации, как в:
+
+readonly string name; // OK
+const double PI; // Error
+
+Во-вторых, значение поля, доступное только для чтения, может быть изменено в конструкторе, 
+но постоянное значение - нет.
+В-третьих, полю только для чтения может быть присвоено значение, являющееся результатом 
+вычисления, но константы не могут, как в:
+
+readonly double a = Math.Sin(60); // OK
+const double b = Math.Sin(60); // Error! 
+______________________________________________________________________________________________
+					      //Индексирование
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn {
+    class Program {
+        static void Main(string[] args) {
+            string str = "Hello World";
+            char x = str[4];
+            Console.WriteLine(x);
+        }
+    }
+}
+
+
+class Clients {
+  private string[] names = new string[10];
+  public string this[int index] {
+    get {
+      return names[index];
+    }
+    set {
+      names[index] = value;
+    }
+  }
+}
+
+
+Как вы можете видеть, определение индексатора включает в себя ключевое слово this и индекс, 
+который используется для получения и установки соответствующего значения.
+Теперь, когда мы объявляем объект класса Clients, мы используем индекс для ссылки на 
+конкретные объекты, такие как элементы массива:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+namespace SoloLearn {
+    class Program {
+        class Clients {
+            private string[] names = new string[10];
+            public string this[int index] {
+                get {
+                    return names[index];
+                }
+                set {
+                    names[index] = value;
+                }
+            }
+        }
+        static void Main(string[] args) {
+            Clients c = new Clients();
+            c[0] = "Dave";
+            c[1] = "Bob";            
+            Console.WriteLine(c[1]);
+        }
+    }
+}
+______________________________________________________________________________________________
+					      //Перегрузка операторов
+
+class Box {
+  public int Height {get; set;}
+  public int Width {get; set;}
+  public Box(int h, int w) {
+    Height = h;
+    Width = w;
+  }
+}
+static void Main(string[] args) {
+  Box b1 = new Box(14, 3);
+  Box b2 = new Box(5, 7);
+  // Box b3 = b1 + b2; хотелось бы произвести операцию
+
+}
+
+
+
+Перегруженные операторы - это методы со специальными именами, где за ключевым 
+словом operator следует символ определяемого оператора.
+Подобно любому другому методу, перегруженный оператор имеет возвращаемый тип и список параметров.
+Например, для нашего класса Box мы перегружаем оператор +:
+
+// перегрузка опреатора обозначается словом operator
+// в данном фрагменте перегружается оператор +
+
+public static Box operator+ (Box a, Box b) {
+  int h = a.Height + b.Height;
+  int w = a.Width + b.Width;
+  Box res = new Box(h, w);
+  return res;
+}
+Приведенный выше метод определяет перегруженный оператор + с двумя параметрами 
+объекта Box и возвращает новый объект Box, свойства высоты и ширины которого равны 
+сумме соответствующих свойств его параметра.
+Кроме того, перегруженный оператор должен быть статичным.
+Собирая все это воедино:
+______________________________________________________________________________________________
+					      // Перегруженные опреаторы
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn
+{
+    class Program
+    {
+        class Box {
+            public int Height { get; set; }
+            public int Width { get; set; }
+            public Box(int h, int w) {
+                Height = h;
+                Width = w;
+                Console.WriteLine($"{h} {w}");
+            }
+            // объект Box с перегруженным параметром
+            public static Box operator+(Box a, Box b) {
+                int h = a.Height + b.Height;
+                int w = a.Width + b.Width;
+                Box res = new Box(h, w);
+                return res;
+            }
+        }
+        static void Main(string[] args)
+        {
+            Box b1 = new Box(14, 3); // Отсылается только к class Box public Box
+            Box b2 = new Box(5, 7); // Отсылается только к class Box public Box
+            /* В конечном счете в public Box(int h, int w) прописываются значения к
+            Height = h;
+            Width = w;
+            */
+            // Перегруженный оператор 
+            Box b3 = b1 + b2; // Ссылается на public static Box operator+(Box a, Box b)
+
+            /*Логика:
+            Первый этап: 
+            передается значение 14 и 3
+            14 = Height = h
+            3 = Width = w
+            
+            Второй этап:
+            передается значение 5 и 7
+            5 = Height = h
+            7 = Width = w
+
+            Третий этап: 
+            Происходит сложение определенных ранее переменных b1 и b2 со ссылкой на 
+            перегруженный опреатор +
+
+            14 + 5 = 19 = h 
+            3 + 7 = 10 = w 
+            При этом в перегруженном опреаторе есть ссылка на переменную res, которая 
+            ссылается на class Box public Box
+
+            Таким образом произошло суммирование элементов со схожей структурой и 
+            типом элементов
+            */
+            Console.WriteLine(b3.Height);
+            Console.WriteLine(b3.Width);
+        }
+    }
+}
+______________________________________________________________________________________________
+					      //Пример перегрузки bool оператора
+public static bool operator> (Boxa, Box b) {
+	if (a.Height*a.Width > b.Height * b.Width) 
+		retirn true;
+	else 
+		return false;
+}
+
+
+______________________________________________________________________________________________
+					      //НАСЛЕДОВАНИЕ
+Наследование позволяет нам определять класс на основе другого класса. Это упрощает создание и обслуживание 
+приложения.
+Класс, свойства которого наследуются другим классом, называется базовым классом. Класс, который наследует 
+свойства, называется производным классом.
+Например, базовый класс Animal можно использовать для получения классов Cat и Dog.
+Производный класс наследует все функции от базового класса и может иметь свои собственные дополнительные 
+функции.
+
+Давайте определим наш базовый класс Animal:
+class Animal {
+  public int Legs {get; set;}
+  public int Age {get; set;}
+}
+
+Теперь мы можем вывести из него класс Dog:
+
+class Dog : Animal {
+  public Dog() {
+    Legs = 4;
+  }
+  public void Bark() {
+    Console.Write("Woof");
+  }
+}
+Обратите внимание на синтаксис производного класса. Двоеточие и имя базового класса следуют за именем 
+производного класса.
+Все публичные члены Animal становятся публичными членами Dog. Вот почему мы можем получить доступ к 
+элементу Legs в конструкторе Dog.
+Теперь мы можем создать экземпляр объекта типа Dog и получить доступ к унаследованным элементам, 
+а также вызвать его собственный метод Bark.
+
+Программа в сборе :
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn {
+    class Program {
+        class Animal {
+            public int Legs {get; set;}
+            public int Age {get; set;}
+        }
+        class Dog : Animal {
+            public Dog() {
+                Legs = 4;
+            }
+            public void Bark() {
+                Console.Write("Woof");
+            }
+        }
+        static void Main(string[] args) {
+            Dog d = new Dog();
+            Console.WriteLine(d.Legs);            
+            d.Bark();
+        }
+    }
+}
+
+Базовый класс может иметь несколько производных классов. Например, класс Cat может 
+наследоваться от Animal.
+
+Наследование позволяет производному классу повторно использовать код в базовом классе без необходимости 
+его переписывания. И производный класс можно настроить, добавив больше членов. Таким образом, 
+производный класс расширяет функциональность базового класса.
+______________________________________________________________________________________________
+					      //
+До этого момента мы работали исключительно с модификаторами публичного и частного доступа.
+К общедоступным членам можно получить доступ из любого места за пределами класса, в то время как 
+доступ к закрытым членам ограничен их классом.
+Модификатор защищенного доступа очень похож на private с одним отличием; к нему можно получить доступ 
+в производных классах. Таким образом, защищенный элемент доступен только из производных классов.
+Например:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn {
+    class Program {
+        class Person {
+            protected int Age {get; set;}
+            protected string Name {get; set;}
+        }
+        class Student : Person {
+            public Student(string nm) {
+                Name = nm;
+            }
+            public void Speak() {
+                Console.Write("Name: "+Name);
+            }
+        }
+        static void Main(string[] args) {
+            Student s = new Student("David");
+            s.Speak();
+        }
+    }
+}
+
+Как вы можете видеть, мы можем получить доступ к свойству Name базового класса и изменить 
+его из производного класса.
+Но, если мы попытаемся получить к нему доступ из внешнего кода, мы получим сообщение об ошибке:
+
+// ERROR CODE // ERROR CODE // ERROR CODE // ERROR CODE // ERROR CODE // ERROR CODE // ERROR
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn
+{
+    class Program
+    {
+        class Person {
+            protected int Age {get; set;}
+            protected string Name {get; set;}
+        }
+        class Student : Person {
+            public Student(string nm) {
+                Name = nm;
+            }
+            public void Speak() {
+                Console.Write("Name: "+Name);
+            }
+        }
+        static void Main(string[] args)
+        {
+            Student s = new Student("David");
+            s.Name = "Bob"; //Не возможно обратиться к переменной в классе Person поскольку она protected
+        }
+    }
+}
+// ERROR CODE // ERROR CODE // ERROR CODE // ERROR CODE // ERROR CODE // ERROR CODE // ERROR 
+
+Класс может запретить другим классам наследовать его или любого из его членов, используя модификатор sealed.
+Например:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn {
+    class Program {
+        sealed class Animal {
+            //some code
+        }
+        class Dog : Animal { } //Error        
+        static void Main(string[] args) {
+            
+        }
+    }
+}
+
+В этом случае мы не можем вывести класс Dog из класса Animal, потому что Animal запечатан.
+Ключевое слово sealed обеспечивает вашему классу такой уровень защиты, что другие классы не могут 
+наследовать от него.
+______________________________________________________________________________________________
+					      //Указатель на запрет наследования
+Заполните пробелы, чтобы вывести класс B из класса A и предотвратить наследование класса B.
+class A {
+} 
+sealed class B : A {
+}
+
+
+______________________________________________________________________________________________
+					      //
+Конструкторы вызываются при создании объектов класса. При наследовании конструктор и деструктор базового 
+класса не наследуются, поэтому вы должны определить конструкторы для производных классов.
+Однако конструктор и деструктор базового класса вызываются автоматически при создании или удалении объекта
+ производного класса.
+Рассмотрим следующий пример:
+
+class Animal {
+  public Animal() {
+    Console.WriteLine("Animal created");
+  }
+  ~Animal() {
+    Console.WriteLine("Animal deleted");
+  }
+}
+class Dog: Animal {
+  public Dog() {
+    Console.WriteLine("Dog created");
+  }
+  ~Dog() {
+    Console.WriteLine("Dog deleted");
+  }
+}
+Мы определили класс Animal с конструктором и деструктором и производный класс Dog с его собственным 
+конструктором и деструктором.
+Итак, что произойдет, когда мы создадим объект производного класса? Нажмите далее, чтобы узнать!
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn
+{
+    class Program
+    {
+        class Animal {
+            public Animal() {
+                Console.WriteLine("Animal created");
+            }
+            ~Animal() {
+                Console.WriteLine("Animal deleted");
+            }
+        }
+        class Dog: Animal {
+            public Dog() {
+                Console.WriteLine("Dog created");
+            }
+            ~Dog() {
+                Console.WriteLine("Dog deleted");
+            }
+        }
+        static void Main(string[] args)
+        {
+            Dog d = new Dog();
+        }
+    }
+}
+
+Ввод на экран:
+Animal created
+Dog created
+Dog deleted
+Animal deleted
+Обратите внимание, что конструктор базового класса вызывается первым, а конструктор производного класса 
+вызывается следующим.
+Когда объект уничтожен, вызывается деструктор производного класса, а затем вызывается деструктор базового
+ класса.
+Вы можете представить это следующим образом: производный класс нуждается в своем базовом классе для 
+работы, поэтому сначала вызывается конструктор базового класса.
+______________________________________________________________________________________________
+					      //ПОЛИМОРФИЗМ
+Слово полиморфизм означает "имеющий множество форм".
+Как правило, полиморфизм возникает, когда существует иерархия классов, и они связаны посредством 
+наследования от общего базового класса.
+Полиморфизм означает, что вызов метода-члена приведет к выполнению другой реализации в зависимости от 
+типа объекта, который вызывает метод.
+Проще говоря, полиморфизм означает, что один и тот же метод может иметь несколько различных реализаций.
+
+Подумайте о том, чтобы иметь программу, которая позволяет пользователям рисовать различные фигуры. 
+Каждая фигура рисуется по-разному, и вы не знаете, какую форму выберет пользователь.
+Здесь полиморфизм может быть использован для вызова соответствующего метода Draw любого производного 
+класса путем переопределения того же метода в базовом классе. Такие методы должны быть объявлены с 
+использованием ключевого слова virtual в базовом классе.
+Например:
+class Shape {
+  public virtual void Draw() {
+    Console.Write("Base Draw");
+  }
+}
+
+Ключевое слово virtual позволяет переопределять методы в производных классах.
+Виртуальные методы позволяют единообразно работать с группами связанных объектов.
+
+Теперь мы можем создавать различные классы фигур, которые определяют свои собственные методы 
+рисования, используя ключевое слово override:
+
+class Circle : Shape {
+  public override void Draw() {
+    // draw a circle...
+    Console.WriteLine("Circle Draw");
+  }
+}
+class Rectangle : Shape {
+  public override void Draw() {
+    // draw a rectangle...
+    Console.WriteLine("Rect Draw");
+  }
+}
+Метод виртуального рисования в базовом классе Shape может быть переопределен в производных классах. 
+В этом случае круг и прямоугольник имеют свои собственные методы рисования.
+Теперь мы можем создавать отдельные объекты Shape для каждого производного типа, а затем вызывать 
+их методы рисования:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn {
+    class Program {
+        class Shape {
+            public virtual void Draw() {
+                Console.Write("Base Draw");
+            }
+        }
+        class Circle : Shape {
+            public override void Draw() {
+                // draw a circle...
+                Console.WriteLine("Circle Draw");
+            }
+        }
+        class Rectangle : Shape {
+            public override void Draw() {
+                // draw a rectangle...
+                Console.WriteLine("Rect Draw");
+            }
+        }
+        static void Main(string[] args) {
+            Shape c = new Circle();
+            c.Draw();
+
+            Shape r = new Rectangle();
+            r.Draw();
+        }
+    }
+}
+
+output: 
+Circle Draw
+Rect Draw
+
+Как вы можете видеть, каждый объект вызвал свой собственный метод рисования, благодаря полиморфизму.
+
+Подводя итог, полиморфизм - это способ вызывать один и тот же метод для разных объектов и генерировать
+разные результаты в зависимости от типа объекта. Такое поведение достигается с помощью виртуальных 
+методов в базовом классе.
+Чтобы реализовать это, мы создаем объекты базового типа, но создаем их экземпляры как производного типа:
+
+Shape c = new Circle();
+
+Форма - это базовый класс. Circle - это производный класс.
+Так зачем же использовать полиморфизм? Мы могли бы просто создать экземпляр каждого объекта его типа 
+и вызвать его метод, как в:
+
+Circle c = new Circle();
+c.Draw();
+
+Полиморфный подход позволяет нам относиться к каждому объекту одинаково. Поскольку все объекты имеют 
+типовую форму, их легче обслуживать и работать с ними. Вы могли бы, например, иметь список (или массив) 
+объектов этого типа и работать с ними динамически, не зная фактического производного типа каждого объекта.
+Полиморфизм может быть полезен во многих случаях. Например, мы могли бы создать игру, в которой у нас 
+были бы разные типы игроков, причем у каждого игрока было бы отдельное поведение для метода атаки.
+В этом случае Attack был бы виртуальным методом базового класса Player, и каждый производный класс 
+переопределял бы его.
+______________________________________________________________________________________________
+					      //Абстрактные классы
+Как описано в предыдущем примере, полиморфизм используется, когда у вас есть разные производные классы с 
+одним и тем же методом, который имеет разные реализации в каждом классе. Такое поведение достигается с 
+помощью виртуальных методов, которые переопределяются в производных классах.
+В некоторых ситуациях нет существенной необходимости в том, чтобы виртуальный метод имел отдельное 
+определение в базовом классе.
+Эти методы определяются с использованием ключевого слова abstract и указывают, что производные классы 
+должны определять этот метод самостоятельно.
+Вы не можете создавать объекты класса, содержащие абстрактный метод, поэтому сам класс должен быть 
+абстрактным.
+Мы могли бы использова…
+
+abstract class Shape {
+   public abstract void Draw();
+}
+
+Как вы можете видеть, метод Draw является абстрактным и, следовательно, не имеет тела. Вам даже не нужны 
+фигурные скобки; просто завершите оператор точкой с запятой.
+Сам класс Shape должен быть объявлен абстрактным, поскольку он содержит абстрактный метод. Объявления 
+абстрактных методов разрешены только в абстрактных классах.
+Помните, что объявления абстрактных методов разрешены только в абстрактных классах. Члены, помеченные 
+как абстрактные или включенные в абстрактный класс, должны быть реализованы классами, производными от 
+абстрактного класса. Абстрактный класс может иметь несколько абстрактных членов.
+
+Абстрактный класс предназначен для того, чтобы быть базовым классом других классов. Он действует как 
+шаблон для своих производных классов.
+Теперь, имея абстрактный класс, мы можем вывести другие классы и определить их собственные методы Draw():
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn {
+    class Program {
+        abstract class Shape {
+            public abstract void Draw();
+        }
+        class Circle : Shape {
+            public override void Draw() {
+                Console.WriteLine("Circle Draw");
+            }
+        }
+        class Rectangle : Shape {
+            public override void Draw() {
+                Console.WriteLine("Rect Draw");
+            }
+        }
+        static void Main(string[] args) {
+            Shape c = new Circle();
+            c.Draw();
+        }
+    }
+}
+
+Абстрактные классы обладают следующими особенностями:
+- Абстрактный класс не может быть создан.
+- Абстрактный класс может содержать абстрактные методы и средства доступа.
+- Неабстрактный класс, производный от абстрактного класса, должен включать фактические реализации 
+всех унаследованных абстрактных методов и средств доступа.
+Невозможно изменить абстрактный класс с помощью модификатора sealed, поскольку эти два модификатора 
+имеют противоположные значения. Модификатор sealed предотвращает наследование класса, 
+а abstract модификатор требует наследования класса.
+______________________________________________________________________________________________
+					      //Интерфейс
+
+Интерфейс - это полностью абстрактный класс, который содержит только абстрактные члены.
+Он объявляется с использованием ключевого слова interface:
+
+public interface IShape {
+  void Draw();
+}
+
+Все элементы интерфейса по умолчанию являются абстрактными, поэтому нет необходимости использовать 
+ключевое слово abstract.
+
+Интерфейсы могут иметь общедоступные (по умолчанию), частные и защищенные элементы.
+Обычно в качестве начальной буквы имени интерфейса используется заглавная буква I.
+Интерфейсы могут содержать свойства, методы и т.д., Но не могут содержать поля (переменные).
+
+Когда класс реализует интерфейс, он также должен реализовать или определить все его методы.
+Термин "реализация интерфейса" используется (в отличие от термина "наследование от") для описания 
+процесса создания класса на основе интерфейса. Интерфейс просто описывает, что должен делать класс. 
+Класс, реализующий интерфейс, должен определять, как выполнять поведение.
+Синтаксис для реализации интерфейса такой же, как и для получения класса:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn {
+    class Program {
+        public interface IShape {
+            void Draw();
+        }
+        class Circle : IShape {
+            public void Draw() {
+                Console.WriteLine("Circle Draw");
+            }
+        }
+        static void Main(string[] args) {
+            IShape c = new Circle();
+            c.Draw();
+        }
+    }
+}
+
+Обратите внимание, что ключевое слово override не требуется при реализации интерфейса.
+Но зачем использовать интерфейсы, а не абстрактные классы?
+Класс может наследовать только от одного базового класса, но он может реализовывать несколько 
+интерфейсов!
+Следовательно, используя интерфейсы, вы можете включить поведение из нескольких источников в класс.
+Чтобы реализовать несколько интерфейсов, используйте разделенный запятыми список интерфейсов 
+при создании класса: класс A: IShape, IAnimal и т.д.
+
+Любым способом. Это полезно, когда есть необходимость предоставить единую реализацию для общей 
+функциональности.
+
+Давайте предположим, что нам нужно добавить новую общую функциональность к нашему уже 
+существующему интерфейсу, который реализован многими классами. Без реализации по умолчанию 
+до C# 8) эта операция привела бы к ошибкам, потому что добавленный нами метод не реализован 
+в классах, и нам нужно было бы реализовать одну и ту же операцию по очереди в каждом классе. 
+Реализация по умолчанию в интерфейсе решает эту проблему.
+
+Например:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn {
+    class Program {
+        public interface IShape {
+            void Draw();
+            void Finish(){ // Добавлен этот новый метод и его значение
+                Console.WriteLine("Done!");
+            }
+        }
+        class Circle : IShape {
+            public void Draw() {
+                Console.WriteLine("Circle Draw");
+            }
+        }
+        static void Main(string[] args) {
+            IShape c = new Circle();
+            c.Draw();
+            c.Finish();
+        }
+    }
+}
+
+Мы добавили метод Finish() с реализацией по умолчанию в наш интерфейс IShape и вызвали его, 
+не реализуя внутри класса Circle.
+Методы с реализацией по умолчанию могут быть свободно переопределены внутри класса, который 
+реализует этот интерфейс.
+
+Пример наследования двух интерфейсов:
+Два интерфейса
+
+interface A {
+}
+interface B {
+}
+class Test : A, B, {
+}
+______________________________________________________________________________________________
+					      //Вложенные классы
+C# поддерживает вложенные классы: класс, который является членом другого класса.
+Например:
+
+class Car {
+  string name;
+  public Car(string nm) {
+    name = nm;
+    Motor m = new Motor();
+  }
+  public class Motor {
+    // some code
+  }
+}
+Класс Motor вложен в класс Car и может использоваться аналогично другим членам класса.
+Вложенный класс действует как член класса, поэтому он может иметь те же модификаторы доступа, 
+что и другие члены (общедоступный, частный, защищенный).
+Так же, как и в реальной жизни, объекты могут содержать другие объекты. Например, автомобиль, 
+который имеет свои собственные атрибуты (цвет, марка и т.д.), содержит двигатель, который, 
+как отдельный объект, имеет свои собственные атрибуты (объем, мощность и т.д.). 
+Здесь класс Car может иметь вложенный класс Motor в качестве одного из своих членов.
+______________________________________________________________________________________________
+					      //Пространство имен namespace
+Когда вы создаете пустой проект, он имеет следующую структуру:
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn {
+  class Program {
+    static void Main(string[] args) {
+    }
+  }
+}
+Обратите внимание, что вся наша программа находится внутри пространства имен. Итак, что же такое 
+пространства имен?
+Пространства имен объявляют область, содержащую набор связанных объектов. Вы можете 
+использовать пространство имен для организации элементов кода. Вы можете определить свои 
+собственные пространства имен и использовать их в своей программе.
+Ключевое слово using указывает, что программа использует данное пространство имен.
+Например, мы используем пространство имен System в наших программах, в котором определяется 
+Console класса:
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn {
+    class Program {
+        static void Main(string[] args) {
+            Console.WriteLine("Hi");
+        }
+    }
+}
+
+Без инструкции using нам пришлось бы указывать пространство имен везде, где оно используется:
+
+namespace SoloLearn {
+    class Program {
+        static void Main(string[] args) {
+            System.Console.WriteLine("Hi");
+        }
+    }
+}
+
+Платформа .NET Framework использует пространства имен для организации своих многочисленных 
+классов. System - это один из примеров пространства имен .NET Framework.
+Объявление ваших собственных пространств имен может помочь вам сгруппировать имена классов 
+и методов в более крупных проектах программирования.
+______________________________________________________________________________________________
+					      //Структуры
+Структурный тип - это тип значения, который обычно используется для инкапсуляции небольших групп 
+связанных переменных, таких как координаты прямоугольника или характеристики товара в инвентаре. 
+В следующем примере показано простое объявление структуры:
+
+struct Book {
+  public string title;  
+  public double price;
+  public string author;
+}
+
+Структуры имеют большую часть того же синтаксиса, что и классы, но более ограничены, чем классы.
+В отличие от классов, структуры могут быть созданы без использования нового оператора.
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn {
+    class Program {
+        struct Book {
+            public string title;  
+            public double price;
+            public string author;
+        }
+        static void Main(string[] args) {
+            Book b;
+            b.title = "Test";
+            b.price = 5.99;
+            b.author = "David";            
+            Console.WriteLine(b.title);
+        }
+    }
+}
+
+Структуры не поддерживают наследование и не могут содержать виртуальные методы.
+
+Структуры могут содержать методы, свойства, индексаторы и так далее. Структуры не могут содержать 
+конструкторы по умолчанию (конструктор без параметров), но они могут иметь конструкторы, которые 
+принимают параметры. В этом случае ключевое слово new используется для создания экземпляра 
+объекта struct, аналогичного объектам класса.
+Например:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn {
+    class Program {
+        struct Point {
+            public int x;
+            public int y;
+            public Point(int x, int y) {
+                this.x = x;
+                this.y = y;
+            }
+        }
+        static void Main(string[] args) {
+            Point p = new Point(10, 15);
+            Console.WriteLine(p.x);
+        }
+    }
+}
+
+Структуры против классов
+
+Как правило, классы используются для моделирования более сложного поведения или данных, которые 
+предназначены для изменения после создания объекта класса. Структуры лучше всего подходят для 
+небольших структур данных, которые содержат в основном данные, которые не предназначены для 
+изменения после создания структуры. Рассмотрите возможность определения структуры вместо класса, 
+если вы пытаетесь представить простой набор данных.
+
+Все стандартные типы C# (int, double, bool, char и т.д.) на самом деле являются структурами.
+______________________________________________________________________________________________
+					      //Перечисление
+Ключевое слово enum используется для объявления перечисления: типа, который состоит из набора 
+именованных констант, называемых списком перечислителя.
+По умолчанию первый счетчик имеет значение 0, а значение каждого последующего счетчика увеличивается на 1.
+Например, в следующем перечислении Sun равно 0, Mon равно 1, Tue равно 2 и так далее:
+
+enum Days {Sun, Mon, Tue, Wed, Thu, Fri, Sat}; 
+
+Вы также можете назначить свои собственные значения перечислителя:
+
+enum Days {Sun, Mon, Tue=4, Wed, Thu, Fri, Sat}; 
+
+В приведенном выше примере перечисление начнется с 0, затем Пн равно 1, Вт равно 4, Ср равно 5 и так далее. 
+Значение следующего элемента в перечислении является одним приращением предыдущего значения.
+Обратите внимание, что значения разделены запятыми.
+Вы можете ссылаться на значения в перечислении с помощью синтаксиса dot.
+Чтобы присвоить значения Enum переменным int, вы должны указать тип в круглых скобках:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn {
+    class Program {
+        enum Days { Sun, Mon, Tue=4, Wed, Thu, Fri, Sat }; 
+        static void Main(string[] args) {
+            int x = (int)Days.Tue;
+            int y = (int)Days.Wed;
+            Console.WriteLine(x); // 4 
+            Console.WriteLine(y); // 5
+        }
+    }
+}
+
+По сути, перечисления определяют переменные, которые представляют члены фиксированного набора.
+Некоторые примеры использования перечислений включают названия месяцев, дней недели, карт в колоде и т.д.
+______________________________________________________________________________________________
+					      // Перечисление
+Перечисления часто используются с операторами switch.
+Например:
+
+ 
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn {
+    class Program {
+        enum TrafficLights {Green, Red, Yellow};
+        static void Main(string[] args) {
+            TrafficLights x = TrafficLights.Red;
+            switch (x) {
+                case TrafficLights.Green:
+                    Console.WriteLine("Go!");
+                    break;
+                case TrafficLights.Red:
+                    Console.WriteLine("Stop!");
+                    break;
+                case TrafficLights.Yellow:
+                    Console.WriteLine("Caution!");
+                    break;
+            }
+        }
+    }
+}
+______________________________________________________________________________________________
+					      //Исключения
+Исключение - это проблема, возникающая во время выполнения программы. Исключения приводят к аварийному 
+завершению программы.
+Исключение может возникнуть по многим разным причинам. Несколько примеров:
+- Пользователь ввел неверные данные.
+- Файл, который необходимо открыть, не может быть найден.
+- Сетевое соединение было потеряно в середине обмена сообщениями.
+- Недостаточная память и другие проблемы, связанные с физическими ресурсами.
+
+Например, следующий код выдаст исключение при запуске, потому что мы запрашиваем индекс, который не 
+существует:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn {
+    class Program {
+        static void Main(string[] args) {
+            int[] arr = new int[] { 4, 5, 8 };
+            Console.Write(arr[8]);
+        }
+    }
+}
+
+Как вы можете видеть, исключения вызваны ошибкой пользователя, ошибкой программиста или проблемами 
+с физическими ресурсами. Однако хорошо написанная программа должна обрабатывать все возможные 
+исключения.
+
+C# предоставляет гибкий механизм, называемый оператором try-catch, для обработки исключений, чтобы 
+программа не выходила из строя при возникновении ошибки.
+Блоки try и catch используются аналогично:
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn {
+    class Program {
+        static void Main(string[] args) {
+            try {
+                int[] arr = new int[] { 4, 5, 8 };
+                Console.Write(arr[8]);
+            }
+            catch(Exception e) {
+                Console.WriteLine("An error occurred");
+	Console.WriteLine(e.Message); // Index was outside the bounds of the array.
+            }
+        }
+    }
+}
+
+Код, который может сгенерировать исключение, помещается в блок try. Если возникает исключение, блок catch 
+выполняется без остановки программы.
+Тип исключения, которое вы хотите перехватить, указан в круглых скобках после ключевого слова catch.
+Мы используем общий тип исключения для обработки всех видов исключений. Мы также можем использовать 
+объект исключения e для доступа к деталям исключения, таким как исходное сообщение об ошибке (e.Message):
+
+		**** Обработка нескольких исключений ****
+
+Один блок try может содержать несколько блоков catch, которые обрабатывают разные исключения отдельно.
+Обработка исключений особенно полезна при работе с пользовательским вводом.
+Например, для программы, которая запрашивает ввод пользователем двух чисел, а затем выводит их частное, 
+убедитесь, что вы обрабатываете деление на ноль, в случае, если ваш пользователь вводит 0 в качестве 
+второго числа.
+
+int x, y;
+try {
+  x = Convert.ToInt32(Console.Read());
+  y = Convert.ToInt32(Console.Read());
+  Console.WriteLine(x / y);
+}
+catch (DivideByZeroException e) {
+  Console.WriteLine("Cannot divide by 0");
+}
+catch(Exception e) {
+  Console.WriteLine("An error occurred");
+}
+
+Приведенный выше код обрабатывает исключение DivideByZeroException отдельно. Последний перехват 
+обрабатывает все остальные исключения, которые могут возникнуть. Если обрабатывается несколько 
+исключений, тип исключения должен быть определен последним.
+Теперь, если пользователь введет 0 для второго числа, будет отображено "Невозможно разделить на 0".
+Если, например, пользователь вводит нецелые значения, будет отображено сообщение "Произошла ошибка".
+
+Следующие типы исключений являются одними из наиболее часто используемых: 
+FileNotFoundException, 
+FormatException, 
+IndexOutOfRangeException, 
+InvalidOperationException, 
+OutOfMemoryException.
+
+Необязательный блок finally может быть использован после блоков catch. Блок finally используется для выполнения 
+заданного набора инструкций, независимо от того, генерируется исключение или нет.
+Например:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn {
+    class Program {
+        static void Main(string[] args) {
+            int result=0;
+            int num1 = 8;
+            int num2 = 4;
+            try {
+                result = num1 / num2;
+            }
+            catch (DivideByZeroException e) {
+                Console.WriteLine("Error");
+            }
+            finally {
+                Console.WriteLine(result);
+            }
+        }
+    }
+}
+
+Блок finally можно использовать, например, при работе с файлами или другими ресурсами. 
+Они должны быть закрыты или освобождены в блоке finally, независимо от того, вызвано исключение или нет.
+______________________________________________________________________________________________
+					      //ЗАПИСЬ И ФАЙЛЫ
+
+System.IO содержит различные классы, которые используются для выполнения 
+многочисленных операций с файлами, таких как создание и удаление файлов, чтение из файла или 
+запись в файл, закрытие файла и многое другое.
+Класс File является одним из них.
+Например:
+
+string str = "Some text";
+File.WriteAllText("test.txt", str);
+
+WriteAllText() метод создает файл с указанным путем и записывает в него содержимое. 
+Если файл уже существует, он перезаписывается.
+Приведенный выше код создает файл test.txt и записывает в него содержимое строки str.
+
+Чтобы использовать File class, вам необходимо использовать System.IO namespace: using System.IO;
+
+Вы можете прочитать содержимое файла, используя метод ReadAllText класса File:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.IO;
+
+namespace SoloLearn {
+    class Program {
+        static void Main(string[] args) {
+            string str = "Some text";
+            File.WriteAllText("test.txt", str);
+            
+            string txt = File.ReadAllText("test.txt");
+            Console.WriteLine(txt); 
+        }
+    }
+}
+
+Это выведет содержимое test.txt файл.
+В классе File доступны следующие методы:
+AppendAllText() - добавляет текст в конец файла.
+Create() - создает файл в указанном расположении.
+Delete() - удаляет указанный файл.
+Exists() - определяет, существует ли указанный файл.
+Copy() - копирует файл в новое местоположение.
+Move() - перемещает указанный файл в новое местоположение
+
+Все методы автоматически закрывают файл после выполнения операции.
+______________________________________________________________________________________________
+					      //Generics
+Дженерики позволяют повторно использовать код разных типов.
+Например, давайте объявим метод, который меняет местами значения двух своих параметров:
+
+static void Swap(ref int a, ref int b) {
+  int temp = a;
+  a = b;
+  b = temp;
+}
+
+Наш метод Swap будет работать только для целочисленных параметров. Если мы хотим использовать 
+его для других типов, например, двойников или строк, мы должны перегрузить его для всех типов, с 
+которыми мы хотим его использовать. Помимо большого количества повторений кода, становится 
+сложнее управлять кодом, потому что изменения в одном методе означают изменения во всех 
+перегруженных методах.
+Дженерики предоставляют гибкий механизм для определения универсального типа.
+
+static void Swap<T>(ref T a, ref T b) {
+  T temp = a;
+  a = b;
+  b = temp;
+}
+
+В приведенном выше коде T - это имя нашего универсального типа. Мы можем назвать это как угодно, 
+но T - это часто используемое имя. Наш метод подкачки теперь принимает два параметра типа T. 
+Мы также используем тип T для нашей временной переменной, которая используется для обмена значениями.
+
+Обратите внимание на скобки в синтаксисе <T>, которые используются для определения универсального типа.
+
+Теперь мы можем использовать наш метод Swap (подкачки) с различными типами, как в:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn {
+    class Program {
+        static void Swap<T>(ref T a, ref T b) {
+            T temp = a;
+            a = b;
+            b = temp;
+        }
+        static void Main(string[] args) {
+            int a = 4, b = 9;
+            Swap<int>(ref a, ref b);
+            Console.WriteLine(a+" "+b);
+            
+            string x = "Hello";
+            string y = "World";
+            Swap<string>(ref x, ref y);
+            Console.WriteLine(x+" "+y);
+        }
+    }
+}
+
+9 4
+World Hello
+Происходит обмен значений между переменными
+
+При вызове универсального метода нам нужно указать тип, с которым он будет работать, используя скобки. 
+Итак, когда вызывается Swap<int>, тип T заменяется на int. Для Swap<string> T заменяется на string.
+Если вы не укажете тип при вызове универсального метода, компилятор будет использовать тип на 
+основе аргументов, переданных методу.
+
+С помощью одного метода можно использовать несколько общих параметров.
+Например: Func<T, U> принимает два разных универсальных типа.
+
+______________________________________________________________________________________________
+					      //Универсальные классы
+
+Универсальные типы также могут использоваться с классами.
+Наиболее часто универсальные классы используются с коллекциями элементов, где такие операции, 
+как добавление и удаление элементов из коллекции, выполняются в основном одинаково, независимо 
+от типа хранимых данных. Один тип коллекции называется стеком. Элементы "выталкиваются", или 
+добавляются в коллекцию, и "выталкиваются", или удаляются из коллекции. Стек иногда называют 
+структурой данных "Последний вход - первый выход" (LIFO).
+Например:
+
+class Stack<T> {
+  int index=0;
+  T[] innerArray = new T[100];
+  public void Push(T item) {
+    innerArray[index++] = item; 
+  }
+  public T Pop() {
+    return innerArray[--index]; 
+  }
+  public T Get(int k) { return innerArray[k]; }
+}
+
+Универсальный класс хранит элементы в массиве. Как вы можете видеть, общий тип T используется в 
+качестве типа массива, типа параметра для метода Push и возвращаемого типа для методов Pop и Get.
+Теперь мы можем создавать объекты нашего универсального класса:
+
+Stack<int> intStack = new Stack<int>();
+Stack<string> strStack = new Stack<string>();
+Stack<Person> PersonStack = new Stack<Person>();
+
+Мы также можем использовать универсальный класс с пользовательскими типами, такими как пользовательский 
+тип Person.
+В универсальном классе нам не нужно определять универсальный тип для его методов, потому что 
+универсальный тип уже определен на уровне класса.
+
+Методы универсального класса вызываются так же, как и для любого другого объекта:
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn {
+    class Program {
+        class Stack<T> {
+            int index=0;
+            T[] innerArray = new T[100];
+            public void Push(T item) {
+                innerArray[index++] = item; 
+            }
+            public T Pop() {
+                return innerArray[--index]; 
+            }
+            public T Get(int k) { return innerArray[k]; }
+        }
+        static void Main(string[] args) {
+            Stack<int> intStack = new Stack<int>();
+            intStack.Push(3);
+            intStack.Push(6);
+            intStack.Push(7);
+            
+            Console.WriteLine(intStack.Get(0));
+            Console.WriteLine(intStack.Get(1));
+            Console.WriteLine(intStack.Get(2));
+        }
+    }
+}
+______________________________________________________________________________________________
+					      //C# Collections
+Коллекция используется для группировки связанных объектов. В отличие от массива, он динамичен и также 
+может группировать объекты. Коллекция может увеличиваться и уменьшаться, чтобы вместить любое 
+количество объектов. Классы коллекции организованы в пространства имен и содержат встроенные 
+методы для обработки элементов внутри коллекции.
+
+Коллекция организует связанные данные в компьютере таким образом, чтобы их можно было эффективно 
+использовать.
+
+Различные виды коллекций подходят для различных видов приложений, а некоторые из них 
+узкоспециализированы для конкретных задач. Например, словари используются для представления 
+подключений на социальных сайтах (таких как Twitter, Facebook), очереди могут использоваться для 
+создания планировщиков задач, хэш-наборы используются в алгоритмах поиска и т.д.
+
+Коллекция обычно включает в себя методы для добавления, удаления и подсчета объектов. Инструкции 
+for и foreach используются для перебора коллекций. Поскольку коллекция - это класс, вы должны сначала 
+объявить экземпляр класса, прежде чем сможете добавлять элементы в эту коллекцию.
+Например:
+
+List<int> li = new List<int>(); 
+
+Коллекции обеспечивают более гибкий способ работы с группами объектов. В отличие от массивов, 
+группа объектов, с которыми вы работаете, может динамически увеличиваться и уменьшаться по 
+мере изменения потребностей приложения.
+
+Универсальные коллекции являются предпочтительным типом для использования, если каждый элемент 
+в коллекции имеет один и тот же тип данных. В общую коллекцию могут быть добавлены только 
+желаемые типы данных, и это обеспечивается с помощью строгой типизации, которая уменьшает 
+вероятность ошибок.
+Платформа .NET Framework предоставляет ряд общих классов коллекций, полезных для хранения 
+данных и манипулирования ими.
+система.Коллекции.
+System.Collections.Generic включает в себя следующие общие коллекции:
+
+- List<T>
+- Dictionary<TKey, TValue>
+- SortedList<TKey, TValue>
+- Stack<T>
+- Queue<T>
+- Hashset<T>
+
+Чтобы получить доступ к общей коллекции в вашем коде, вам нужно будет включить инструкцию
+using Systems.Collections.Generic;
+
+Непатентованные коллекции
+В неродовых коллекциях могут храниться элементы типа Object. Поскольку объектный тип данных 
+может ссылаться на любой тип данных, вы рискуете получить неожиданные результаты. Доступ к 
+неродовым коллекциям также может быть медленнее, чем их выполнение.
+
+System.Collections включает в себя следующие не общие коллекции:
+
+- ArrayList
+- SortedList
+- Stack
+- Queue
+- Hashtable
+- BitArray
+
+Поскольку непатентованные коллекции подвержены ошибкам и менее производительны, 
+рекомендуется всегда использовать универсальные коллекции из системы.Коллекции.
+Общее пространство имен, если оно доступно, и избегать использования устаревших 
+коллекций из системы.Пространство имен коллекций.
+______________________________________________________________________________________________
+					      // List<T>
+
+Список похож на массив, но элементы в списке могут быть вставлены и удалены динамически.
+Класс C# generic collection List<T> требует, чтобы все элементы были одного типа T.
+
+List<T> свойств и методов включает в себя:
+Count A свойство, которое получает количество элементов, содержащихся в списке.
+Item[int i] Возвращает или устанавливает элемент в списке с индексом i. Элемент является индексатором и не требуется при доступе к элементу. Вам нужно только использовать квадратные скобки [] и значение индекса внутри скобок.
+Add(T t) Добавляет элемент t в конец списка.
+RemoveAt(int index) Удаляет элемент в указанной позиции (индекс) из списка.
+Sort() Сортирует элементы в списке.
+
+Now let's try List<T>:
+
+using System;
+using System.Collections.Generic;
+
+namespace SoloLearn {
+	class Program {
+		static void Main(string[] args)	{
+		    List<int> li = new List<int>();
+            li.Add(59);
+            li.Add(72);
+            li.Add(95);
+            li.Add(5);
+            li.Add(9);
+            li.RemoveAt(1); // remove 72
+            
+            Console.Write("\nList: ");
+            for (int x = 0; x < li.Count; x++)
+                Console.Write(li[x] + " "); // 59  95  5  9
+            li.Sort();
+            Console.Write("\nSorted: ");
+            for (int x = 0; x < li.Count; x++)
+                Console.Write(li[x] + " "); // 5  9  59  95
+		}
+	}
+}
+
+Additional List<T> свойства и методы перечислены ниже. Попробуйте их, добавив в приведенный выше 
+пример кода List<T>.
+
+Capacity - свойство, которое определяет количество элементов, которые может содержать список, прежде 
+чем потребуется изменить его размер.
+Clear() - Удаляет все элементы из списка.
+TrimExcess() - Устанавливает емкость на фактическое количество элементов в списке. Это полезно при 
+попытке уменьшить нагрузку на память.
+AddRange(IEnumerable coll) - Добавляет элементы collection coll с элементами того же типа, что и 
+List<T>, в конец списка. IEnumerable - это интерфейс коллекций, который поддерживает простую 
+итерацию по коллекции.
+Insert(int i, T t) - Вставляет элемент t с определенным индексом i в списке.
+InsertRange(int i, IEnumerable coll) - Вставляет элементы коллекции coll с указанным индексом i в списке. 
+IEnumerable - это интерфейс коллекций, который поддерживает простую итерацию по коллекции.
+Remove(T t) - Удаляет первое вхождение объекта t из списка.
+RemoveRange(int i, int count) - Удаляет указанное количество элементов из списка, начинающегося с указанного 
+индекса i.
+Contains(T t) - Возвращает значение true, если указанный элемент t присутствует в списке.
+IndexOf(T t) - Возвращает индекс первого вхождения элемента t в список.
+Reverse() - Изменяет порядок элементов в списке на противоположный.
+ToArray()  - Копирует элементы списка в новый массив.
+
+Запустите код и посмотрите, как он работает!
+Помните, что вам нужно включить заявление: using Systems.Collections.Generic; to use List<T>.
+______________________________________________________________________________________________
+					      // SortedList<K, V>
+
+
+Отсортированный список - это набор пар ключ/значение, которые отсортированы по ключу. Ключ может 
+быть использован для доступа к соответствующему значению в отсортированном списке.
+
+Класс C# generic collection SortedList<K, V> требует, чтобы все пары ключ/значение элемента были 
+одного типа K, V. Дубликаты ключей не допускаются, что гарантирует уникальность каждой пары ключ/значение.
+
+Свойства SortedList<K, V> включают:
+
+Count - Возвращает количество пар ключ/значение, содержащихся в отсортированном списке.
+Item[K key] - Получает или устанавливает значение, связанное с указанным ключом, содержащимся в 
+отсортированном списке. Элемент является индексатором и не требуется при доступе к элементу. 
+Вам нужно только использовать квадратные скобки [] и ключ, значение
+Keys - Получает отсортированную и проиндексированную коллекцию, содержащую только ключи из 
+отсортированного списка.
+
+SortedList<K, V> включают:
+Add(K key, V value) - Добавляет элемент с определенной парой ключ-значение в отсортированный список.
+Remove(K key) -Удаляет элемент с определенной парой ключ-значение, связанной с указанным ключом, 
+из отсортированного списка
+
+Now let's try SortedList<K, V>:
+
+using System;
+using System.Collections.Generic;
+
+namespace SoloLearn {
+	class Program {
+		static void Main(string[] args) {
+		    SortedList<string, int> sl = new SortedList<string, int>();
+
+		    sl.Add("Solo", 59);
+		    sl.Add("A", 95);
+		    sl.Add("Learn", 72);
+		    sl.Remove("A");
+            
+		    Console.WriteLine("Sorted List: ");
+		    foreach (string s in sl.Keys)
+		        Console.WriteLine(s + ": " + sl[s]);  // Learn: 72  Solo: 59
+		    Console.WriteLine("\nCount: " + sl.Count);  // 2
+		}
+	}
+}
+
+OUTPUT: 
+
+Sorted List: 
+Learn: 72
+Solo: 59
+
+Count: 2
+
+Вот дополнительные свойства и методы SortedList<K, V>:
+
+Values -  Возвращает отсортированную и проиндексированную коллекцию значений в отсортированном списке.
+Clear() - удаляет все элементы из отсортированного списка.
+ContainsKey(K key) - возвращает значение true, если указанный ключ присутствует в отсортированном списке.
+ContainsValue(V значение) - возвращает значение true, если указанное значение присутствует в 
+отсортированном списке.
+IndexOfKey(K key) - возвращает индекс указанного ключа в отсортированном списке.
+IndexOfValue(V значение) - возвращает индекс указанного значения в отсортированном списке.
+
+Битовый массив - это набор битов. Значение бита может быть либо 0 (выкл./ложь), либо 1 (вкл./истина).
+Битовые массивы компактно хранят биты. Чаще всего они используются для представления простой 
+группы логических флагов или упорядоченной последовательности логических значений.
+
+Свойства BitArray включают в себя:
+Count - возвращает количество битов в битовом массиве.
+IsReadOnly - получает значение, указывающее, доступен ли битовый массив только для чтения или нет.
+
+Методы BitArray включают в себя:
+Get(int i) - возвращает значение бита в указанной позиции i в битовом массиве.
+Set(int i, bool value) - устанавливает бит в указанной позиции i на указанное значение в битовом массиве.
+se…
+setAll(bool value) - устанавливает все биты в указанное значение в битовом массиве.
+And(BitArray ba) - выполняет побитовую операцию AND над элементами объекта битового массива с 
+указанным битовым массивом ba.
+Or(BitArray ba) - выполняет побитовую операцию OR над элементами битового массива и указанным 
+битовым массивом ba.
+Not() - инвертирует битовые значения битового массива.
+Xor(BitArray ba) - выполняет побитовую операцию XOR над элементами текущего объекта битового 
+массива и элементами в указанном битовом массиве ba.
+
+Этот пример демонстрирует некоторые свойства и методы класса BitArray:
+
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoloLearn {
+    class Program {
+        // Printing BitArray
+        public static void PrintBarr(string name, BitArray ba) {
+            Console.Write(name + " : ");
+            for (int x = 0; x < ba.Length; x++)
+                Console.Write(ba.Get(x) + " ");
+            Console.WriteLine();
+        }
+        
+        public static void Main(string[] args) {
+            BitArray ba1 = new BitArray(4);
+            BitArray ba2 = new BitArray(4);
+            
+            ba1.SetAll(true);
+            ba2.SetAll(false);
+            
+            ba1.Set(2, false);
+            ba2.Set(3, true);
+            
+            PrintBarr("ba1", ba1);
+            PrintBarr("ba2", ba2);
+            Console.WriteLine();
+            
+            PrintBarr("ba1 AND ba2", ba1.And(ba2));
+            PrintBarr("    NOT ba2", ba2.Not());
+        }
+    }
+}
+
+Например, битовые массивы могут использоваться при обработке изображений для хранения отдельных 
+битов изображения в масштабе серого.
+______________________________________________________________________________________________
+					      // Stack<T>
+
+Стек - это коллекция элементов Last In, First Out (LIFO), где последний элемент, который попадает в стек, 
+будет первым элементом, который выходит.
+
+Вставка элемента в стек называется выталкиванием. Удаление элемента из стека называется выталкиванием. 
+Выталкивание и выскакивание может выполняться только в верхней части стека.
+
+Стеки можно использовать для создания функций отмены-повтора, синтаксического анализа 
+выражений (преобразование инфикса в постфикс / префикс префикса) и многого другого.
+Класс C# generic collection Stack<T> требует, чтобы все элементы были одного типа T.
+
+Свойства стека<T> включают:
+Count - возвращает количество элементов в стеке.
+
+Методы стека<T> включают в себя:
+Peek() - возвращает элемент в верхней части стека, не удаляя его.
+Pop() - возвращает элемент в верхней части стека и удаляет его из стека.
+Push(T t) - вставляет элемент t в верхнюю часть стека.
+
+Теперь давайте попробуем Stack<T>:
+
+using System;
+using System.Collections.Generic;
+
+namespace SoloLearn
+{
+	class Program
+	{
+		static void Main(string[] args)
+		{
+		    Stack<int> s = new Stack<int>();
+            
+		    s.Push(59);
+		    s.Push(72);
+		    s.Push(65);
+
+		    Console.Write("Stack: ");
+		    foreach (int i in s)
+		        Console.Write(i + " ");  // 65  72  59
+		    Console.Write("\nCount: " + s.Count);  // 3
+            
+		    Console.Write("\nTop: " + s.Peek());  // 65
+		    Console.Write("\nPop: " + s.Pop());  // 65
+            
+		    Console.Write("\nStack: ");
+		    foreach (int i in s)
+		        Console.Write(i + " ");  // 72  59
+		    Console.Write("\nCount: " + s.Count);  // 2
+		}
+	}
+}
+
+Вот дополнительные методы стека<T>:
+Clear() - удаляет все элементы из стека.
+Contains(T t) - возвращает значение true, когда элемент t присутствует в стеке.
+ToArray() - копирует стек в новый массив.
+
+Очередь - это коллекция элементов First In, First Out (FIFO), где первый элемент, который попадает в очередь, 
+также является первым элементом, который выходит.
+
+Вставка элемента в очередь называется постановкой в очередь. Удаление элемента из очереди 
+называется Dequeue (снятием с очереди).
+
+Очереди используются всякий раз, когда нам нужно управлять объектами по порядку, начиная с 
+первого из них.
+Сценарии включают печать документов на принтере, системы колл-центра, отвечающие людям, 
+находящимся в режиме ожидания, и так далее.
+
+Класс C# generic collection Queue<T> требует, чтобы все элементы были одного типа T.
+
+Свойства очереди<T> включают:
+Count - возвращает количество элементов в очереди.
+
+И методы включают:
+Dequeue() - возвращает объект в начало очереди, а также удаляет его.
+Enqueue(T t) - добавляет объект t в конец очереди.
+
+Теперь давайте попробуем очередь<T>:
+
+using System;
+using System.Collections.Generic;
+
+namespace SoloLearn {
+	class Program {
+		static void Main(string[] args)	{
+            Queue<int> q = new Queue<int>();
+            
+            q.Enqueue(5);
+            q.Enqueue(10);
+            q.Enqueue(15);
+            Console.Write("Queue: ");
+            foreach (int i in q)
+                Console.Write(i + " ");  // 5  10  15
+            Console.Write("\nCount: " + q.Count);  // 3
+            
+            Console.Write("\nDequeue: " + q.Dequeue()); // 5
+            
+            Console.Write("\nQueue: ");
+            foreach (int i in q)
+                Console.Write(i + " ");  // 10  15
+            Console.Write("\nCount: " + q.Count);  // 2
+		}
+	}
+}
+
+Вот дополнительные методы Queue<T>:
+Clear() - удаляет все объекты из очереди.
+Contains(T t) - возвращает значение true, когда элемент t присутствует в очереди.
+Peek() - возвращает объект в начало очереди, не удаляя его.
+ToArray() - копирует очередь в новый массив.
+______________________________________________________________________________________________
+					     *Словарь Dictionary<U, V>
+----------------------------------------------------------------------------------------------
+Словарь - это набор уникальных пар ключ/значение, где ключ используется для доступа к 
+соответствующему значению. Словари используются при индексации базы данных, 
+реализации кэша и так далее.
+
+Класс C# generic collection Dictionary<K, V> требует, чтобы все пары ключ / значение 
+были одного типа K, V. Дубликаты ключей не допускаются, чтобы гарантировать 
+уникальность каждой пары ключ / значение.
+
+Свойства Dictionary<K, V> включают:
+Count - возвращает количество пар ключ/значение, содержащихся в словаре.
+Item[K key] - получает значение, связанное с указанным ключом в словаре. 
+Элемент является индексатором и не требуется при доступе к элементу. 
+Вам нужно только использовать квадратные скобки [] и ключевое значение.
+Keys - получает индексированную коллекцию, содержащую только ключи, 
+содержащиеся в словаре.
+
+Методы Dictionary<K, V> включают:
+Add(K key, V value) - добавляет пару ключ-значение в словарь.
+Remove(K key)  - удаляет пару ключ/значение, связанную с указанным ключом, из словаря.
+
+Теперь давайте попробуем словарь<K, V>:
+
+using System;
+using System.Collections.Generic;
+
+namespace SoloLearn {
+	class Program {
+		static void Main(string[] args) {
+			Dictionary<string, int> d = new Dictionary<string, int>();
+            			d.Add("Uno", 1);
+            			d.Add("One", 1);
+            			d.Add("Dos", 2);
+            			d.Add("Deux", 2);
+            			d.Remove("One");  // Remove key-value pair One, 1
+            			d.Remove("Dos");  // Remove key-value pair Dos, 2
+            
+            			Console.WriteLine("Dictionary: ");
+            			foreach (string s in d.Keys)
+                				Console.WriteLine(s + ": " + d[s]);  // Uno: 1  Deux: 2
+            			Console.WriteLine("\nCount: {0}", d.Count); // 2 
+		}
+	}
+}
+
+В приведенном выше примере словарь d использует строки в качестве ключей и целые 
+числа в качестве значений.
+
+Вот дополнительные свойства и методы словаря Dictionary<K, V>:
+Values - получает индексированную коллекцию, содержащую только значения в словаре.
+Clear()  - удаляет все пары ключ/значение из словаря.
+ContainsKey(K key) - возвращает значение true, если указанный ключ присутствует в словаре.
+ContainsValue(V значение) - возвращает значение true, если указанное значение 
+присутствует в словаре.
+Запустите код и посмотрите, как он работает!
+
+______________________________________________________________________________________________
+				*Хэш - HashSet<T>
+----------------------------------------------------------------------------------------------
+
+Хэш-набор HashSet - это набор уникальных значений, дубликаты которых недопустимы.
+
+C# включает класс HashSet<T> в пространство имен generic collections. 
+Все элементы HashSet<T> должны быть одного и того же типа T.
+Хэш-наборы отличаются от других коллекций тем, что они представляют 
+собой просто набор значений. У них нет индексных позиций, и элементы 
+не могут быть упорядочены.
+Класс HashSet<T> обеспечивает высокопроизводительные операции 
+с наборами. Хэш-наборы позволяют быстро искать, добавлять и 
+удалять элементы и могут использоваться для реализации либо 
+динамических наборов элементов, либо таблиц поиска, которые 
+позволяют находить элемент по его ключу (например, находить 
+номер телефона человека по фамилии).
+Свойства HashSet<T> включают:
+Count Возвращает количество значений в наборе хэшей.
+
+И методы methods включают:
+Add(T t) Добавляет значение (t) к набору хэшей.
+IsSubsetOf(ICollection c) Возвращает значение true, если хэш-набор 
+является подмножеством указанной коллекции (c).
+
+Теперь давайте попробуем HashSet<T>:
+
+using System;
+using System.Collections.Generic;
+
+namespace SoloLearn {
+	class Program {
+		static void Main(string[] args)	{
+            HashSet<int> hs = new HashSet<int>();
+            
+            hs.Add(5);
+            hs.Add(10);
+            hs.Add(15);
+            hs.Add(20);
+            Console.Write("\nHashSet: ");
+            foreach (int i in hs)
+                Console.Write(i + " ");  // 5  10  15  20  *elements may be in any order
+            Console.Write("\nCount: " + hs.Count);  // 4
+            
+            HashSet<int> hs2 = new HashSet<int>();
+            hs2.Add(15);
+            hs2.Add(20);
+            Console.Write("\n{15, 20} is a subset of {5, 10, 15, 20}: " + hs2.IsSubsetOf(hs)); // True 
+		}
+	}
+}
+
+*******Output: 
+HashSet: 5 10 15 20 
+Count: 4
+{15, 20} is a subset of {5, 10, 15, 20}: True
+
+Вот дополнительные методы HashSet<T>:
+Remove(T t) Удаляет значение (t) из набора хэшей.
+Clear() Удаляет все элементы из хэш-набора.
+Contains(T t) Возвращает значение true, когда значение (t) присутствует в наборе хэшей.
+toString() Создает строку из набора хэшей.
+IsSupersetOf(ICollection c) Возвращает значение true, если набор хэшей является надмножеством указанной коллекции.
+UnionWith(ICollection c) Применяет операцию объединения набора к хэш-набору и указанной коллекции (c).
+IntersectWith(ICollection c) Применяет операцию пересечения набора к хэш-набору и указанной коллекции (c).
+ExceptWith(ICollection c) Применяет операцию set difference к хэш-набору и указанной коллекции (c).
+______________________________________________________________________________________________
+					      // Поиск названия по ключу
+Dictionary<string, int> d = new Dictionary<string, int >();
+
+d.Add("John", 24);
+d.Add("Ann", 18);
+d.Add("Peter", 27);
+
+string name = "John";
+	Console.Write(d [ name ] );
+______________________________________________________________________________________________
+					      //
+______________________________________________________________________________________________
+					      //
+______________________________________________________________________________________________
+					      //
+______________________________________________________________________________________________
+					      //
+______________________________________________________________________________________________
+					      //
+______________________________________________________________________________________________
+					      //
+______________________________________________________________________________________________
+					      //
+______________________________________________________________________________________________
+					      //
+______________________________________________________________________________________________
+					      //
+______________________________________________________________________________________________
+					      //
+______________________________________________________________________________________________
+					      //
+______________________________________________________________________________________________
+					      //
+______________________________________________________________________________________________
+					      //
+______________________________________________________________________________________________
+					      //
+______________________________________________________________________________________________
+					      //
+______________________________________________________________________________________________
+					      //
+______________________________________________________________________________________________
+					      //
+______________________________________________________________________________________________
+					      //
+______________________________________________________________________________________________
+					      //
+______________________________________________________________________________________________
+					      //
+______________________________________________________________________________________________
+					      //
+______________________________________________________________________________________________
+					      //
